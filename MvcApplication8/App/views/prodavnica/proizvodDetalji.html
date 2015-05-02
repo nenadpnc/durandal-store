@@ -1,0 +1,160 @@
+﻿<div data-bind="with: proizvod" class="container-fluid">
+    <div class="row-fluid">
+        <div class="span12">
+            <button style="margin-bottom: 10px" class="btn btn-info" data-bind="event: { tap: $parent.vratiNazad }">
+                <i class="icon-arrow-left"></i>
+            </button>
+            <figure class="kudo kudoable pull-right" data-bind="css: { complete: $parent.favProizvod() }">
+                <a class="kudobject">
+                    <div class="opening">
+                        <div class="circle">&nbsp;</div>
+                    </div>
+                </a>
+                <a href="#kudo" class="count">
+                    <span class="num" data-bind="text: BrojFav"></span>
+                </a>
+            </figure>
+        </div>
+    </div>
+    <div class="row-fluid">
+        <div class="span5">
+            <ul class="nav nav-tabs">
+                <li class="active"><a href="#foto" data-toggle="tab"><i class="icon-camera-retro icon-2x">
+                </i></a></li>
+                <li data-bind="visible: DaLiJe360"><a href="#360" data-toggle="tab">
+                    <img src="../../Content/images/360.png" /></a></li>
+            </ul>
+            <div class="tab-content">
+                <div class="tab-pane fade in active fotorama visHidden" data-width="100%" 
+                    data-ratio="0.75" data-nav="thumbs" data-bind="foreach: $parent.slike" id="foto">
+                    <img data-bind="attr: { src: Src }" />
+                </div>
+                <div class="tab-pane fade" style="text-align: center" id="360">
+                    <img id="slika360" style="width: 400px; height: 400px;" />
+                </div>
+            </div>
+        </div>
+        <div class="span7">
+            <div>
+                <h1><strong data-bind="text: Naziv"></strong></h1>
+                <hr />
+                <p style="font-size: 22px;">
+                    <span>Prodajna cena: </span>
+                    <span style="color: orangered;" data-bind="text: $parent.cena() + ' ' + $parent.kursniSimbol()">
+                    </span>
+                    <span data-bind="visible: Popust() > 0">
+                        <span class="badge badge-important badge-circle" data-bind="html: '<i class=icon-arrow-down></i> ' + Popust() + ' %'">
+                        </span>
+                    </span>
+                </p>
+                <hr />
+                <p id="kurs">
+                    <button class="btn circle" data-odnos="1" data-simbol="€" style="width: 55px; height: 55px; padding: 5px;">
+                        <img class="img-circle" src="../../Content/images/European-Euro.png" />
+                    </button>
+                    <button class="btn circle" data-bind="attr: { 'data-odnos': $parent.kursnaLista.USD() }" data-simbol="$" style="width: 55px; height: 55px; padding: 5px;">
+                        <img class="img-circle" src="../../Content/images/Dollar.png" />
+                    </button>
+                    <button class="btn circle" data-bind="attr: { 'data-odnos': $parent.kursnaLista.GBP() }" data-simbol="£" style="width: 55px; height: 55px; padding: 5px;">
+                        <img class="img-circle" src="../../Content/images/Pound.png" />
+                    </button>
+                    <button class="btn circle" data-bind="attr: { 'data-odnos': $parent.kursnaLista.RSD() }" data-simbol="дин" style="width: 55px; height: 55px; padding: 5px;">
+                        <img class="img-circle" src="../../Content/images/Serbian-Dinar.png" />
+                    </button>
+                </p>
+                <hr />
+                <p data-bind="text: DugOpis"></p>
+                <hr />
+            </div>
+            <p>
+                <select data-bind="options: $parent.velicine, optionsText: 'Naziv', value: $parent.izabranaVelicina">
+                </select>
+                <br />
+                <span style="color: GrayText; font-size: 13px;" data-bind="visible: $parent.izabranaVelicina().Kolicina() > 0, text: 'Trenutna količina na zalihama: ' + $parent.izabranaVelicina().Kolicina()"></span>
+                <span style="color: indianred; font-size: 13px;" data-bind="visible: $parent.izabranaVelicina().Kolicina() === 0">Trenutno nema proizvoda na zalihama</span>
+            </p>
+            <hr />
+            <form id="forma" class="form-horizontal" method="post" action="https://www.sandbox.paypal.com/cgi-bin/webscr">
+                <div class="input-prepend">
+                    <span class="add-on">Kol: </span>
+                    <input style="width: 35px;" data-bind="value: $parent.izabranaKolicina, attr: { max: $parent.izabranaVelicina().Kolicina }"
+                        class="input-mini" type="number" min="1" />
+                </div>
+                <button data-bind="enable: $parent.izabranaVelicina().Kolicina() > 0 && $parent.izabranaKolicina() >= 1 && $parent.izabranaKolicina() <= $parent.izabranaVelicina().Kolicina()"
+                    class="btn btn-primary btn-large clearfix" type="submit" name="submit">
+                    <i class="icon-shopping-cart"></i> Ubaci u korpu</button>
+                <input type="hidden" name="cmd" value="_cart" />
+                <input type="hidden" name="add" value="1" />
+                <input type="hidden" name="quantity" data-bind="attr: { value: $parent.izabranaKolicina }" />
+                <input type="hidden" name="business" value="nenadpnc@gmail.com" />
+                <input type="hidden" name="item_name" data-bind="attr: { value: Naziv }" />
+                <input type="hidden" name="amount" data-bind="attr: { value: ($parent.cena() / $parent.prethodniOdnos()).toFixed(2) }" />
+                <input type="hidden" name="currency_code" value="EUR" />
+                <input type="hidden" name="on0" value="Veličina" />
+                <input type="hidden" name="os0" data-bind="value: $parent.izabranaVelicina().Naziv" />
+                <input type="hidden" name="max_quantity" data-bind="value: $parent.izabranaVelicina().Kolicina" />
+                <input type="hidden" name="slika_src" data-bind="value: SlikaSrc" />
+                <input type="hidden" name="id" data-bind="value: ProizvodID" />
+                <input type="hidden" name="velicinaId" data-bind="value: $parent.izabranaVelicina().VelicinaId" />
+            </form>
+        </div>
+        <div class="span12">
+            <div id="st-accordion" class="st-accordion">
+                <ul>
+                    <li>
+                        <a href="#" data-bind="html: 'Komentari (' + $parent.komentari().length + ')<span class=st-arrow>Open or Close</span>'"></a>
+                        <div class="st-content">
+                            <p>
+                                <textarea id="textarea" placeholder="Ostavi komentar..." maxlength="200"></textarea>
+                                <span class="greska" data-bind="visible: $parent.errorKor()" style="color: indianred;font-size: small;">Morate se ulogovati!</span>
+                                <span class="greska" data-bind="visible: $parent.errorTekst()" style="color: indianred;font-size: small;">Morate uneti tekst!</span>
+                            </p>
+                            <p id="komentar-dugme">
+                                <button class="btn btn-info" data-bind="event: { tap: $parent.ubaciKomentar }">
+                                    <i class="icon-comment"></i> Ubaci komentar</button>
+                                <span data-bind="visible: $parent.komentari().length < 1">Trenutno nema komentara.</span>
+                            </p>
+                            <hr />
+                            <div class="komentari" data-bind="foreach: $parent.komentari">
+                                <article class="komentar">
+                                    <img class="img-circle komentar-img" data-bind="attr: { src: Korisnik().SlikaSrc }" />
+                                    <div class="komentar-telo">
+                                        <div class="tekst">
+                                            <p data-bind="text: Tekst"></p>
+                                        </div>
+                                        <p class="attr">
+                                            <span data-bind="text: Korisnik().ImePrezime"></span> - 
+                                            <time class="timeago" data-bind="attr: { datetime: DatumISO }"></time>
+                                        </p>
+                                    </div>
+                                </article>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="row-fluid" style="margin-top:30px;">
+        <div class="span12">
+            <h2>Relevantni proizvodi</h2>
+            <span style="font-size:14px;font-style:italic;" data-bind="visible: $parent.relevantniProizvodi().length < 1">Nema relevantnih proizvoda...</span>
+        </div>
+        <div id="rel" class="span12" data-bind="foreach: $parent.relevantniProizvodi">
+            <div class="thumbnail thumbs">
+                <img data-bind="attr: { src: SlikaSrc }" />
+                <div class="caption">
+                    <h4 data-bind="text: Naziv"></h4>
+                    <hr />
+                    <p>
+                        <span class="badge badge-warning badge-circle" data-bind="visible: DaLiJe360">
+                            <img src="../../Content/images/360.png" style="height: 20px;" /></span>
+                        <span class="badge badge-important badge-circle" data-bind="visible: Popust > 0, html: '<i class=icon-arrow-down></i> ' + Popust + ' %'"></span>
+                        <span data-bind="html: BrojFav + ' <i class=icon-heart></i>'"></span>
+                        <span class="badge badge-info pull-right" data-bind="text: '€ ' + Cena.toFixed(2)"></span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

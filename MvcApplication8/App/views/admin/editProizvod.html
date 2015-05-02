@@ -1,0 +1,153 @@
+﻿<div class="container-fluid" id="editProizvod">
+    <div class="row-fluid naslov">
+        <div class="span12">
+            <div class="button-bar pull-left">
+                <button class="btn btn-info" data-bind="click: nazad"><i class="icon-hand-left"></i> Nazad</button>
+                <button class="btn btn-danger" data-bind="click: ponisti, enable: canSave"><i class="icon-undo"></i> Poništi</button>
+                <button class="btn btn-success" data-bind="click: sacuvaj, enable: canSave"><i class="icon-save"></i> Sačuvaj</button>
+                <i class="icon-asterisk" data-bind="visible: hasChanges"></i>
+            </div>
+            <h1 class="pull-right">Uređivanje proizvoda</h1>
+        </div>
+    </div>
+    <div class="row-fluid razmak" data-bind="with: proizvod">
+        <div class="span6" id="detalji-levo">
+            <div>
+                <label for="naziv">Naziv: </label>
+                <input type="text" id="naziv" data-bind="value: Naziv" />
+            </div>
+            <div>
+                <label for="krOpis">Kratak opis: </label>
+                <textarea id="krOpis" rows="2" data-bind="value: KratakOpis"></textarea>
+            </div>
+            <div>
+                <label for="dugOpis">Dug opis: </label>
+                <textarea id="dugOpis" rows="4" data-bind="value: DugOpis"></textarea>
+            </div>
+            <hr />
+            <div class="pola">
+                <div class="pull-left">
+                    <label for="cena">Cena:</label>
+                    <input type="text" id="cena" data-bind="value: Cena" />
+                    <span>€</span>
+                </div>
+                <div>
+                    <label for="popust">Popust:</label>
+                    <input type="text" id="popust" data-bind="value: Popust" />
+                    <span>%</span>
+                </div>
+            </div>
+            <hr />
+            <div>
+                <label>Kategorija:</label>
+                <select data-bind="options: $parent.kategorije, optionsText: 'Naziv', value: Kategorija"></select>
+            </div>
+            <div>
+                <label>Podkategorija:</label>
+                <span data-bind="text: PodkatNaziv"></span>
+                <select class="min" id="podkat" data-bind="options: Kategorija().Podkategorije, optionsText: 'FilterNaziv', value: $parent.podkategorija, optionsCaption: 'Izaberi podkategoriju...'"></select>
+            </div>
+            <hr />
+            <div>
+                <label>Brend:</label>
+                <select data-bind="options: $parent.brendovi, optionsText: 'Naziv', value: Brend"></select>
+            </div>
+            <hr />
+            <div>
+                <label>Boje:</label>
+                <div id="boje" data-bind="foreach: $parent.bojeSplit">
+                    <div class="boja">
+                        <span data-bind="html: boja() + '<i class=icon-remove></i>'"></span>
+                    </div>
+                </div>
+                <select class="min" id="sel_boja" data-bind="options: $parent.boje, optionsText: 'Naziv', optionsCaption: 'Dodaj boju...'"></select>
+            </div>
+        </div>
+        <div class="span6">
+            <div class="prep">
+                <label for="prep">Postavljen na početnu stranu: </label>
+                <input id="prep" type="checkbox" data-bind="checked: Preporuceno" />
+            </div>
+            <hr />
+            <div id="velicine">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Veličine</th>
+                            <th>Količina na zalihama</th>
+                            <th>Obriši</th>
+                        </tr>
+                    </thead>
+                    <tbody data-bind="foreach: Velicine">
+                        <tr>
+                            <td><input type="text" data-bind="value: Naziv" /></td>
+                            <td><input type="number" data-bind="value: Kolicina" /></td>
+                            <td><button class="btn btn-danger" data-bind="click: $root.obrisiVelicinu"><i class="icon-remove"></i></button></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div>
+                    <button class="btn btn-info" data-bind="click: $parent.ubaciVelicinu"><i class="icon-plus"></i> Ubaci veličinu</button>
+                </div>
+            </div>
+            <hr />
+            <div>
+                <label class="pull-left">Umanjena slika:</label>
+                <div class="thumbnail">
+                    <img data-bind="attr: { src: SlikaSrc }" width="248" />
+                    <div class="caption">
+                        <p data-bind="text: $parent.fajl()"></p>
+                    </div>
+                </div>
+                <div class="thumb_levo">
+                    <button id="zameni" class="btn btn-info pull-righr"><i class="icon-exchange"></i> Zameni</button>
+                    <form id="myDropzone" class="dropzone pull-left">
+                        <input type="hidden" name="slikaZaBrisanje" data-bind="value: $parent.fajl()" />
+                        <div class="fallback">
+                            <input name="file" type="file" />
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <hr />
+    <div class="row-fluid razmak">
+        <div class="span12">
+            <label>Slike: </label>
+            <div data-bind="foreach: slike">
+                <div class="thumbnail thumb">
+                    <img data-bind="attr: { src: Src }" />
+                    <button class="btn btn-danger"><i class="icon-trash"></i></button>
+                </div>
+            </div>
+            <div class="pull-left">
+                <form id="dropzoneSlike" class="dropzone">
+                    <div class="fallback">
+                        <input name="file" type="file" />
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <hr />
+    <div class="row-fluid razmak">
+        <div class="span12">
+            <label>Slike 360:</label>
+            <div data-bind="foreach: slike360">
+                <div class="thumbnail thumb360">
+                    <img data-bind="attr: { src: Src }" />
+                    <span data-bind="text: Broj"></span>
+                    <button class="btn btn-danger"><i class="icon-trash"></i></button>
+                </div>
+            </div>
+            <div class="pull-left">
+                <form id="dropzoneSlike360" class="dropzone">
+                    <div class="fallback">
+                        <input name="file" type="file" />
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

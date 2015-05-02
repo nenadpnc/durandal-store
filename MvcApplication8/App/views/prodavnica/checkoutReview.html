@@ -1,0 +1,44 @@
+﻿<div class="container-fluid">
+    <div class="row-fluid">
+        <div class="span12">
+            <h1>Detalji narudžbine</h1>
+        </div>
+    </div>
+</div>
+<div class="container-fluid border" data-bind="foreach: proizvodi">
+    <div class="row-fluid kolona">
+        <div class="span2">
+            <img data-bind="attr: { src: product.slika_src }" style="height: 70px;" />
+        </div>
+        <div class="span3" style="margin-top:10px;" data-bind="text: product.item_name"></div>
+        <div class="span2" style="margin-top:10px;" data-bind="text: 'Veličina: ' + product.os0"></div>
+        <div class="span2" style="margin-top:10px;" data-bind="text: 'Količina: ' + product.quantity"></div>
+        <div class="span3" style="margin-top:10px;" data-bind="text: 'Cena: ' + product.amount + ' €'"></div>
+    </div>
+</div>
+<div class="container-fluid" data-bind="with: narudzbina">
+    <div class="row-fluid">
+        <div class="span12">
+            <h2>Adresa isporuke</h2>
+        </div>
+    </div>
+    <div class="row-fluid">
+        <div class="span6">
+            <address data-bind="text: imePrezime"></address>
+            <address data-bind="text: adresa"></address>
+            <address data-bind="text: grad() + ' ' + drzava() + ' ' + postanskiKod()"></address>
+            <address data-bind="text: zemlja"></address>
+            <address data-bind="text: email"></address>
+        </div>
+        <div class="span6">
+            <h2 class="pull-right" style="color: orangered;" data-bind="text: 'Ukupno: ' + ukupno() + ' €'">
+            </h2>
+        </div>
+    </div>
+    <div class="row-fluid" style="text-align: center;margin-top:30px;">
+        <div class="span12">
+            <button id="potvrdi" class="btn btn-primary btn-large" data-bind="event: { tap: $parent.potvrdi, disable: $parent.greska() }" style="margin-bottom:10px;"><i class="icon-exchange"></i> Potvrdi kupovinu</button>
+            <button id="odustani" class="btn btn-danger btn-large" data-bind="event: { tap: $parent.odustani }" style="margin-bottom:10px;"><i class="icon-remove"></i> Otkaži kupovinu</button>
+        </div>
+    </div>
+</div>

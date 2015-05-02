@@ -1,0 +1,64 @@
+﻿<nav class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+        <div class="container">
+            <a id="meniCollapse" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </a>
+            <a class="brand" href="/">
+                <span class="title"> <img id="logo" src="../../Content/images/logo.png" /></span>
+            </a>
+            <div>
+                <button id="korpa" class="btn circle pull-right" data-bind="event: { tap: korpa }">
+                    <span id="korpaUkupno" class="badge circle badge-important" data-bind="visible: ukupno(), text: ukupno()">
+                    </span>
+                    <img id="korpaImg" src="../../Content/images/Shopping-Cart-04.png" />
+                </button>
+                <a id="konfigMeniMobile" href="#sidr" class="btn circle konfigMeni"><i class="icon-wrench"></i></a>
+            </div>
+            <div class="nav-collapse collapse">
+                <ul class="nav" data-bind="foreach: router.visibleRoutes">
+                    <li>
+                        <a data-bind="css: { active: isActive }, attr: { href: hash }, text: name"></a>
+                    </li>
+                </ul>
+                <ul class="nav pull-right">
+                    <li class="dropdown" data-bind="visible: korisnik.imePrezime()">
+                        <a class="dropdown-toggle" style="padding-bottom:0;" href="#" data-toggle="dropdown">
+                            <h5>
+                                <img class="img-circle" style="height:40px;" data-bind="attr: { src: korisnik.slikaProfil() }" />
+                                <span data-bind="text: korisnik.imePrezime() + ' '"></span>
+                                <strong class="caret" style="margin-top:15px;"></strong>
+                            </h5>
+                        </a>
+                        <div class="dropdown-menu" style="padding: 10px;">
+                            <div>
+                                <a class="lista" data-bind="event: { tap: profil }">Profil</a>
+                                <hr />
+                                <a class="lista" data-bind="event: { tap: logout }">Odjavite se</a>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="dropdown" data-bind="visible: !(korisnik.imePrezime())">
+                        <a class="dropdown-toggle" href="#" data-toggle="dropdown">Prijavite se <strong class="caret" style="margin-top:15px;">
+                        </strong></a>
+                        <div class="dropdown-menu" style="padding: 15px;">
+                            <form>
+                                <a data-bind="event: { tap: googleLogin }" class="btn btn-primary btn-block google lista" id="sign-in-google" style="font-size:18px;">
+                                    <i style="margin-top:7px;float:left;" class="icon-google-plus icon-large"></i> Google +
+                                </a>
+                                <hr />
+                                <a data-bind="event: { tap: facebookLogin }" class="btn btn-primary btn-block facebook lista"id="sign-in-facebook" style="font-size:18px;">
+                                    <i style="margin-top:7px;float:left;" class="icon-facebook icon-large"></i> Facebook
+                                </a>
+                            </form>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div id="overlay" data-bind="css: { active: router.isNavigating }"></div>
+            <div class="spinner" data-bind="css: { active: router.isNavigating }"></div>
+        </div>
+    </div>
+</nav>

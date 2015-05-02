@@ -1,0 +1,114 @@
+﻿<div class="container-fluid">
+    <div class="row-fluid naslov">
+        <div class="span12">
+            <div class="button-bar pull-left">
+                <button class="btn btn-info" data-bind="click: nazad"><i class="icon-hand-left"></i> Nazad</button>
+                <button class="btn btn-danger" data-bind="click: ponisti, enable: canSave"><i class="icon-undo"></i> Poništi</button>
+                <button class="btn btn-success" data-bind="click: sacuvaj, enable: canSave"><i class="icon-save"></i> Sačuvaj</button>
+                <i class="icon-asterisk" data-bind="visible: hasChanges"></i>
+            </div>
+            <h1 class="pull-right">Uređivanje proizvoda</h1>
+        </div>
+    </div>
+    <div class="row-fluid">
+        <div class="span6 razmak">
+            <div class="razmak">
+                <label>Uredi kategorije:</label>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Naziv kategorije</th>
+                            <th>Obriši</th>
+                        </tr>
+                    </thead>
+                    <tbody data-bind="foreach: kategorije">
+                        <tr>
+                            <td>
+                                <input type="text" data-bind="value: Naziv" /></td>
+                            <td>
+                                <button class="btn btn-danger"><i class="icon-trash"></i></button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div>
+                    <button class="btn btn-primary btn-info"><i class="icon-plus"></i>Ubaci kategoriju</button>
+                </div>
+            </div>
+            <hr />
+            <div>
+                <label>Uredi boje:</label>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Naziv boje</th>
+                            <th>Vrednost</th>
+                            <th>Obriši</th>
+                        </tr>
+                    </thead>
+                    <tbody data-bind="foreach: boje">
+                        <tr>
+                            <td><input type="text" data-bind="value: Naziv" /></td>
+                            <td><input type="color" data-bind="value: Vrednost" /></td>
+                            <td><button class="btn btn-danger"><i class="icon-trash"></i></button></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div>
+                    <button class="btn btn-primary btn-info"><i class="icon-plus"></i> Ubaci boju</button>
+                </div>
+            </div>
+        </div>
+        <div class="span6 razmak">
+            <div class="razmak">
+                <label>Uredi podkategorije:</label>
+                <div>
+                    <select id="kat" class="pull-right" data-bind="options: kategorije, optionsText: 'Naziv', value: kategorija"></select>
+                </div>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Naziv podkategorije</th>
+                            <th>Obriši</th>
+                        </tr>
+                    </thead>
+                    <tbody data-bind="foreach: kategorija().Podkategorije">
+                        <tr>
+                            <td>
+                                <input type="text" data-bind="value: Naziv" /></td>
+                            <td>
+                                <button class="btn btn-danger"><i class="icon-trash"></i></button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div>
+                    <button class="btn btn-primary btn-info"><i class="icon-plus"></i>Ubaci podkategoriju</button>
+                </div>
+            </div>
+            <hr />
+            <div>
+                <label>Uredi brendove:</label>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Naziv brenda</th>
+                            <th>Slika</th>
+                            <th>Obriši</th>
+                        </tr>
+                    </thead>
+                    <tbody data-bind="foreach: brendovi">
+                        <tr>
+                            <td><input type="text" data-bind="value: Naziv" /></td>
+                            <td><img data-bind="attr: { src: SlikaSrc }" /></td>
+                            <td><button class="btn btn-danger"><i class="icon-trash"></i></button></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div>
+                    <button class="btn btn-primary btn-info"><i class="icon-plus"></i> Ubaci brend</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

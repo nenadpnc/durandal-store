@@ -1,0 +1,882 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{5306F3B6-7BAF-4349-B37A-DEEA9EB39DAB}</ProjectGuid>
+    <ProjectTypeGuids>{E3E379DF-F4C6-4180-9B81-6769533ABE47};{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MvcApplication8</RootNamespace>
+    <AssemblyName>MvcApplication8</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication>enabled</IISExpressAnonymousAuthentication>
+    <IISExpressWindowsAuthentication>disabled</IISExpressWindowsAuthentication>
+    <IISExpressUseClassicPipelineMode />
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.AspNet.SignalR.Core">
+      <HintPath>..\packages\Microsoft.AspNet.SignalR.Core.2.0.0\lib\net45\Microsoft.AspNet.SignalR.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.SignalR.Owin">
+      <HintPath>..\packages\Microsoft.AspNet.SignalR.Owin.1.1.3\lib\net45\Microsoft.AspNet.SignalR.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.SignalR.SystemWeb">
+      <HintPath>..\packages\Microsoft.AspNet.SignalR.SystemWeb.2.0.0\lib\net45\Microsoft.AspNet.SignalR.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Owin">
+      <HintPath>..\packages\Microsoft.Owin.2.0.0\lib\net45\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.HttpListener">
+      <HintPath>..\packages\Microsoft.Owin.Host.HttpListener.2.0.0\lib\net45\Microsoft.Owin.Host.HttpListener.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb">
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.2.0.0\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Hosting">
+      <HintPath>..\packages\Microsoft.Owin.Hosting.2.0.0\lib\net45\Microsoft.Owin.Hosting.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security">
+      <HintPath>..\packages\Microsoft.Owin.Security.2.0.0\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Newtonsoft.Json.5.0.8\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Mvc.FixedDisplayModes, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.FixedDisplayModes.1.0.0\lib\net40\Microsoft.Web.Mvc.FixedDisplayModes.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.4.0.20710.0\lib\net40\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.4.0.20710.0\lib\net40\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.4.0.20710.0\lib\net40\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.4.0.20710.0\lib\net40\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.0.0\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.2.0.20715.0\lib\net40\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="WebMatrix.Data, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.Data.2.0.20710.0\lib\net40\WebMatrix.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="WebMatrix.WebData, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.WebData.2.0.20710.0\lib\net40\WebMatrix.WebData.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.3.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.3.0\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <!-- Added for HotTowel SPA Template -->
+    <Reference Include="Breeze.WebApi, Version=1.2.0.0, Culture=neutral, PublicKeyToken=f6085f1a45e2ac59, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Breeze.WebApi.1.1.2\lib\Breeze.WebApi.dll</HintPath>
+    </Reference>
+    <Reference Include="Irony, Version=1.0.0.0, Culture=neutral, PublicKeyToken=ca48ace7223ead47, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Breeze.WebApi.1.1.2\lib\Irony.dll</HintPath>
+    </Reference>
+    <Reference Include="WebActivator">
+      <Private>True</Private>
+      <HintPath>..\packages\WebActivator.1.5.3\lib\net40\WebActivator.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BreezeWebApiConfig.cs" />
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\HotTowelConfig.cs" />
+    <Compile Include="App_Start\HotTowelRouteConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\BreezeController.cs" />
+    <Compile Include="Controllers\HotTowelController.cs" />
+    <Compile Include="Controllers\PaypalController.cs" />
+    <Compile Include="Controllers\UploadController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201304151939372_InitialCreate.cs" />
+    <Compile Include="Migrations\201304151939372_InitialCreate.Designer.cs">
+      <DependentUpon>201304151939372_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201304181844348_VelicinaBrend.cs" />
+    <Compile Include="Migrations\201304181844348_VelicinaBrend.Designer.cs">
+      <DependentUpon>201304181844348_VelicinaBrend.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201304181859414_Velicine.cs" />
+    <Compile Include="Migrations\201304181859414_Velicine.Designer.cs">
+      <DependentUpon>201304181859414_Velicine.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201304181905154_Kategorija.cs" />
+    <Compile Include="Migrations\201304181905154_Kategorija.Designer.cs">
+      <DependentUpon>201304181905154_Kategorija.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201304182107116_DatumProizvodi.cs" />
+    <Compile Include="Migrations\201304182107116_DatumProizvodi.Designer.cs">
+      <DependentUpon>201304182107116_DatumProizvodi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201304201635279_slike.cs" />
+    <Compile Include="Migrations\201304201635279_slike.Designer.cs">
+      <DependentUpon>201304201635279_slike.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201304240008054_brojFrejmova.cs" />
+    <Compile Include="Migrations\201304240008054_brojFrejmova.Designer.cs">
+      <DependentUpon>201304240008054_brojFrejmova.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201304241909328_slikaUpdate.cs" />
+    <Compile Include="Migrations\201304241909328_slikaUpdate.Designer.cs">
+      <DependentUpon>201304241909328_slikaUpdate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201305141744537_kategorije.cs" />
+    <Compile Include="Migrations\201305141744537_kategorije.Designer.cs">
+      <DependentUpon>201305141744537_kategorije.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201305141921422_Rute.cs" />
+    <Compile Include="Migrations\201305141921422_Rute.Designer.cs">
+      <DependentUpon>201305141921422_Rute.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201305141925324_rute2.cs" />
+    <Compile Include="Migrations\201305141925324_rute2.Designer.cs">
+      <DependentUpon>201305141925324_rute2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201305141933270_rute3.cs" />
+    <Compile Include="Migrations\201305141933270_rute3.Designer.cs">
+      <DependentUpon>201305141933270_rute3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201305192102446_cenaPrePopusta.cs" />
+    <Compile Include="Migrations\201305192102446_cenaPrePopusta.Designer.cs">
+      <DependentUpon>201305192102446_cenaPrePopusta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201305220045097_boja.cs" />
+    <Compile Include="Migrations\201305220045097_boja.Designer.cs">
+      <DependentUpon>201305220045097_boja.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201305220051263_boja2.cs" />
+    <Compile Include="Migrations\201305220051263_boja2.Designer.cs">
+      <DependentUpon>201305220051263_boja2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201305220120482_boja3.cs" />
+    <Compile Include="Migrations\201305220120482_boja3.Designer.cs">
+      <DependentUpon>201305220120482_boja3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201305221349525_bojaVrednost.cs" />
+    <Compile Include="Migrations\201305221349525_bojaVrednost.Designer.cs">
+      <DependentUpon>201305221349525_bojaVrednost.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201305221627195_podkategorija.cs" />
+    <Compile Include="Migrations\201305221627195_podkategorija.Designer.cs">
+      <DependentUpon>201305221627195_podkategorija.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201305221715001_podKat2.cs" />
+    <Compile Include="Migrations\201305221715001_podKat2.Designer.cs">
+      <DependentUpon>201305221715001_podKat2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201305221747189_podKatNaziv.cs" />
+    <Compile Include="Migrations\201305221747189_podKatNaziv.Designer.cs">
+      <DependentUpon>201305221747189_podKatNaziv.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201305241630444_brendNaziv.cs" />
+    <Compile Include="Migrations\201305241630444_brendNaziv.Designer.cs">
+      <DependentUpon>201305241630444_brendNaziv.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201305242203562_filterNaziv.cs" />
+    <Compile Include="Migrations\201305242203562_filterNaziv.Designer.cs">
+      <DependentUpon>201305242203562_filterNaziv.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201305251800559_fav-proizvodi.cs" />
+    <Compile Include="Migrations\201305251800559_fav-proizvodi.Designer.cs">
+      <DependentUpon>201305251800559_fav-proizvodi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201305302353412_korisnik.cs" />
+    <Compile Include="Migrations\201305302353412_korisnik.Designer.cs">
+      <DependentUpon>201305302353412_korisnik.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201305311651283_korString.cs" />
+    <Compile Include="Migrations\201305311651283_korString.Designer.cs">
+      <DependentUpon>201305311651283_korString.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201306011301537_korSlika.cs" />
+    <Compile Include="Migrations\201306011301537_korSlika.Designer.cs">
+      <DependentUpon>201306011301537_korSlika.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201306011421266_koment.cs" />
+    <Compile Include="Migrations\201306011421266_koment.Designer.cs">
+      <DependentUpon>201306011421266_koment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201306011538145_datumIso.cs" />
+    <Compile Include="Migrations\201306011538145_datumIso.Designer.cs">
+      <DependentUpon>201306011538145_datumIso.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201306011833449_komReq.cs" />
+    <Compile Include="Migrations\201306011833449_komReq.Designer.cs">
+      <DependentUpon>201306011833449_komReq.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201306081656380_drop.cs" />
+    <Compile Include="Migrations\201306081656380_drop.Designer.cs">
+      <DependentUpon>201306081656380_drop.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201306081759538_kursnaLista.cs" />
+    <Compile Include="Migrations\201306081759538_kursnaLista.Designer.cs">
+      <DependentUpon>201306081759538_kursnaLista.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201306091621095_dropCenaPrePop.cs" />
+    <Compile Include="Migrations\201306091621095_dropCenaPrePop.Designer.cs">
+      <DependentUpon>201306091621095_dropCenaPrePop.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201306091909550_dropBojaPop.cs" />
+    <Compile Include="Migrations\201306091909550_dropBojaPop.Designer.cs">
+      <DependentUpon>201306091909550_dropBojaPop.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201306192326135_narudzbina.cs" />
+    <Compile Include="Migrations\201306192326135_narudzbina.Designer.cs">
+      <DependentUpon>201306192326135_narudzbina.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201306192336322_nar2.cs" />
+    <Compile Include="Migrations\201306192336322_nar2.Designer.cs">
+      <DependentUpon>201306192336322_nar2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201306192347398_narudzbina2.cs" />
+    <Compile Include="Migrations\201306192347398_narudzbina2.Designer.cs">
+      <DependentUpon>201306192347398_narudzbina2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201306252338198_narudzbinaDetalji.cs" />
+    <Compile Include="Migrations\201306252338198_narudzbinaDetalji.Designer.cs">
+      <DependentUpon>201306252338198_narudzbinaDetalji.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201306260005222_narKup.cs" />
+    <Compile Include="Migrations\201306260005222_narKup.Designer.cs">
+      <DependentUpon>201306260005222_narKup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201306261600443_narKorisnik.cs" />
+    <Compile Include="Migrations\201306261600443_narKorisnik.Designer.cs">
+      <DependentUpon>201306261600443_narKorisnik.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201306270126586_narDetaljiProizvodId.cs" />
+    <Compile Include="Migrations\201306270126586_narDetaljiProizvodId.Designer.cs">
+      <DependentUpon>201306270126586_narDetaljiProizvodId.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201307072124554_preporuceno.cs" />
+    <Compile Include="Migrations\201307072124554_preporuceno.Designer.cs">
+      <DependentUpon>201307072124554_preporuceno.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201310062325207_migr.cs" />
+    <Compile Include="Migrations\201310062325207_migr.Designer.cs">
+      <DependentUpon>201310062325207_migr.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201310091804071_brendZamena.cs" />
+    <Compile Include="Migrations\201310091804071_brendZamena.Designer.cs">
+      <DependentUpon>201310091804071_brendZamena.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\Boja.cs" />
+    <Compile Include="Models\Brend.cs" />
+    <Compile Include="Models\ContextInitializer.cs" />
+    <Compile Include="Models\FavProizvodi.cs" />
+    <Compile Include="Models\Kategorija.cs" />
+    <Compile Include="Models\Komentar.cs" />
+    <Compile Include="Models\Korisnik.cs" />
+    <Compile Include="Models\KursnaLista.cs" />
+    <Compile Include="Models\Narudzbina.cs" />
+    <Compile Include="Models\NarudzbinaDetalji.cs" />
+    <Compile Include="Models\Podkategorija.cs" />
+    <Compile Include="Models\Proizvod.cs" />
+    <Compile Include="Models\ProizvodiContext.cs" />
+    <Compile Include="Models\Rute.cs" />
+    <Compile Include="Models\Slika.cs" />
+    <Compile Include="Models\Velicina.cs" />
+    <Compile Include="ProizvodHub.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Startup.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App\services\admin_data.js" />
+    <Content Include="App\services\config.js" />
+    <Content Include="App\viewmodels\admin\addProizvodi.js" />
+    <Content Include="App\viewmodels\admin\dashboard.js" />
+    <Content Include="App\viewmodels\admin\editProizvod.js" />
+    <Content Include="App\viewmodels\admin\editProizvodi.js" />
+    <Content Include="App\viewmodels\admin\editPodaci.js" />
+    <Content Include="App\viewmodels\admin\korisnici.js" />
+    <Content Include="App\viewmodels\admin\narudzbine.js" />
+    <Content Include="App\viewmodels\admin\shell.js" />
+    <Content Include="App\views\admin\addProizvodi.html" />
+    <Content Include="App\views\admin\dashboard.html" />
+    <Content Include="App\views\admin\editProizvod.html" />
+    <Content Include="App\views\admin\editProizvodi.html" />
+    <Content Include="App\views\admin\editPodaci.html" />
+    <Content Include="App\views\admin\korisnici.html" />
+    <Content Include="App\views\admin\narudzbine.html" />
+    <Content Include="App\viewmodels\admin\narudzbineDetalji.js" />
+    <Content Include="App\views\admin\nav.html" />
+    <Content Include="App\views\admin\shell.html" />
+    <Content Include="App\main_admin.js" />
+    <Content Include="App\config.js" />
+    <Content Include="App\durandal\amd\almond-custom.js" />
+    <Content Include="App\durandal\amd\optimizer.exe" />
+    <Content Include="App\durandal\amd\r.js" />
+    <Content Include="App\durandal\amd\require.js" />
+    <Content Include="App\durandal\amd\text.js" />
+    <Content Include="App\durandal\app.js" />
+    <Content Include="App\durandal\composition.js" />
+    <Content Include="App\durandal\events.js" />
+    <Content Include="App\durandal\http.js" />
+    <Content Include="App\durandal\messageBox.html" />
+    <Content Include="App\durandal\messageBox.js" />
+    <Content Include="App\durandal\modalDialog.js" />
+    <Content Include="App\durandal\plugins\router.js" />
+    <Content Include="App\durandal\system.js" />
+    <Content Include="App\durandal\transitions\entrance.js" />
+    <Content Include="App\durandal\viewEngine.js" />
+    <Content Include="App\durandal\viewLocator.js" />
+    <Content Include="App\durandal\viewModel.js" />
+    <Content Include="App\durandal\viewModelBinder.js" />
+    <Content Include="App\durandal\widget.js" />
+    <Content Include="App\main_prodavnica.js" />
+    <Content Include="App\services\auth.js" />
+    <Content Include="App\services\datacontext.js" />
+    <Content Include="App\services\logger.js" />
+    <Content Include="App\services\payPalCaller.js" />
+    <Content Include="App\viewmodels\prodavnica\checkoutModal.js" />
+    <Content Include="App\viewmodels\prodavnica\checkoutReview.js" />
+    <Content Include="App\viewmodels\prodavnica\profil.js" />
+    <Content Include="App\viewmodels\prodavnica\home.js" />
+    <Content Include="App\viewmodels\prodavnica\proizvodDetalji.js" />
+    <Content Include="App\viewmodels\prodavnica\shell.js" />
+    <Content Include="App\viewmodels\prodavnica\proizvodi.js" />
+    <Content Include="App\views\prodavnica\checkoutModal.html" />
+    <Content Include="App\views\prodavnica\checkoutReview.html" />
+    <Content Include="App\views\admin\narudzbineDetalji.html" />
+    <Content Include="App\views\prodavnica\profil.html" />
+    <Content Include="App\views\prodavnica\footer.html" />
+    <Content Include="App\views\prodavnica\home.html" />
+    <Content Include="App\views\prodavnica\nav.html" />
+    <Content Include="App\views\prodavnica\proizvodDetalji.html" />
+    <Content Include="App\views\prodavnica\shell.html" />
+    <Content Include="App\views\prodavnica\proizvodi.html" />
+    <Content Include="App_Data\spadb.mdf" />
+    <Content Include="App_Data\spadb_log.ldf" />
+    <Content Include="Content\admin.css" />
+    <Content Include="Content\app.css" />
+    <Content Include="Content\basic.css" />
+    <Content Include="Content\bootstrap-responsive.css" />
+    <Content Include="Content\bootstrap-responsive.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\dropzone.css" />
+    <Content Include="Content\durandal.css" />
+    <Content Include="Content\font-awesome-ie7.css" />
+    <Content Include="Content\font-awesome-ie7.min.css" />
+    <Content Include="Content\font-awesome.css" />
+    <Content Include="Content\font-awesome.min.css" />
+    <Content Include="Content\font\fontawesome-webfont.svg" />
+    <Content Include="Content\footable-0.1.css" />
+    <Content Include="Content\footable.sortable-0.1.css" />
+    <Content Include="Content\fotorama.css" />
+    <Content Include="Content\fotorama.png" />
+    <Content Include="Content\ie10mobile.css" />
+    <Content Include="Content\images\360.png" />
+    <Content Include="Content\images\button-next.png" />
+    <Content Include="Content\images\button-previous.png" />
+    <Content Include="Content\images\Date.png" />
+    <Content Include="Content\images\Discount.png" />
+    <Content Include="Content\images\Discount1.png" />
+    <Content Include="Content\images\Dollar.png" />
+    <Content Include="Content\images\down.png" />
+    <Content Include="Content\images\down1.png" />
+    <Content Include="Content\images\European-Euro.png" />
+    <Content Include="Content\images\glyphicons-halflings-white.png" />
+    <Content Include="Content\images\glyphicons-halflings.png" />
+    <Content Include="Content\images\Heart.png" />
+    <Content Include="Content\images\Heart1.png" />
+    <Content Include="Content\images\heart_60x60.png" />
+    <Content Include="Content\images\logo.png" />
+    <Content Include="Content\images\lupa.png" />
+    <Content Include="Content\images\minicart_sprite.png" />
+    <Content Include="Content\images\minus.png" />
+    <Content Include="Content\images\Money-Deposit.png" />
+    <Content Include="Content\images\Paypal.png" />
+    <Content Include="Content\images\plus.png" />
+    <Content Include="Content\images\Pound.png" />
+    <Content Include="Content\images\Serbian-Dinar.png" />
+    <Content Include="Content\images\Shopping-Cart-04.png" />
+    <Content Include="Content\images\sorting_sprite.png" />
+    <Content Include="Content\images\spritemap%402x.png" />
+    <Content Include="Content\images\spritemap.png" />
+    <Content Include="Content\images\up.png" />
+    <Content Include="Content\jquery.sidr.light.css" />
+    <Content Include="Content\kudos.css" />
+    <Content Include="Content\metro-bootstrap.css" />
+    <Content Include="Content\pure.min.css" />
+    <Content Include="Content\toastr.css" />
+    <Content Include="Content\toastr.min.css" />
+    <Content Include="favicon.ico" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\font\fontawesome-webfont.woff" />
+    <Content Include="Content\font\fontawesome-webfont.ttf" />
+    <Content Include="Content\font\fontawesome-webfont.eot" />
+    <Content Include="Content\font\FontAwesome.otf" />
+    <Content Include="jquery.min.map" />
+    <None Include="Scripts\jquery-1.9.1.intellisense.js" />
+    <None Include="Scripts\breeze.intellisense.js" />
+    <Content Include="Scripts\bootstrap-maxlength.min.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\breeze.debug.js" />
+    <Content Include="Scripts\breeze.min.js" />
+    <Content Include="Scripts\Chart.min.js" />
+    <Content Include="Scripts\dropzone.js" />
+    <Content Include="Scripts\facebook.js" />
+    <Content Include="Scripts\footable.filter.js" />
+    <Content Include="Scripts\footable.js" />
+    <Content Include="Scripts\footable.sortable.js" />
+    <Content Include="Scripts\fotorama.js" />
+    <Content Include="Scripts\google.js" />
+    <Content Include="Scripts\jquery-1.9.1.js" />
+    <Content Include="Scripts\jquery-1.9.1.min.js" />
+    <Content Include="Scripts\jquery.accordion.js" />
+    <Content Include="Scripts\jquery.easing.1.3.js" />
+    <Content Include="Scripts\jquery.finger.js" />
+    <Content Include="Scripts\jquery.masonry.min.js" />
+    <Content Include="Scripts\jquery.mixitup.js" />
+    <Content Include="Scripts\jquery.mixitup.min.js" />
+    <Content Include="Scripts\jquery.sidr.min.js" />
+    <Content Include="Scripts\jquery.signalR-2.0.0.js" />
+    <Content Include="Scripts\jquery.signalR-2.0.0.min.js" />
+    <Content Include="Scripts\jquery.threesixty.js" />
+    <Content Include="Scripts\knockout-2.2.1.debug.js" />
+    <Content Include="Scripts\knockout-2.2.1.js" />
+    <Content Include="Scripts\kudos.js" />
+    <Content Include="Scripts\minicart.js" />
+    <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\moment.js" />
+    <Content Include="Scripts\moment.min.js" />
+    <Content Include="Scripts\q.js" />
+    <Content Include="Scripts\q.min.js" />
+    <Content Include="Scripts\sammy-0.7.4.js" />
+    <Content Include="Scripts\sammy-0.7.4.min.js" />
+    <Content Include="Scripts\sco.collapse.js" />
+    <Content Include="Scripts\timeago.js" />
+    <Content Include="Scripts\toastr-1.1.5.js" />
+    <Content Include="Scripts\toastr-1.1.5.min.js" />
+    <Content Include="Scripts\_references.js" />
+    <Content Include="Slike\360\CVWMBR\1.jpg" />
+    <Content Include="Slike\360\CVWMBR\10.jpg" />
+    <Content Include="Slike\360\CVWMBR\11.jpg" />
+    <Content Include="Slike\360\CVWMBR\12.jpg" />
+    <Content Include="Slike\360\CVWMBR\13.jpg" />
+    <Content Include="Slike\360\CVWMBR\14.jpg" />
+    <Content Include="Slike\360\CVWMBR\15.jpg" />
+    <Content Include="Slike\360\CVWMBR\16.jpg" />
+    <Content Include="Slike\360\CVWMBR\17.jpg" />
+    <Content Include="Slike\360\CVWMBR\18.jpg" />
+    <Content Include="Slike\360\CVWMBR\2.jpg" />
+    <Content Include="Slike\360\CVWMBR\3.jpg" />
+    <Content Include="Slike\360\CVWMBR\4.jpg" />
+    <Content Include="Slike\360\CVWMBR\5.jpg" />
+    <Content Include="Slike\360\CVWMBR\6.jpg" />
+    <Content Include="Slike\360\CVWMBR\7.jpg" />
+    <Content Include="Slike\360\CVWMBR\8.jpg" />
+    <Content Include="Slike\360\CVWMBR\9.jpg" />
+    <Content Include="Slike\360\DCCPBBR\1.jpg" />
+    <Content Include="Slike\360\DCCPBBR\10.jpg" />
+    <Content Include="Slike\360\DCCPBBR\11.jpg" />
+    <Content Include="Slike\360\DCCPBBR\12.jpg" />
+    <Content Include="Slike\360\DCCPBBR\13.jpg" />
+    <Content Include="Slike\360\DCCPBBR\14.jpg" />
+    <Content Include="Slike\360\DCCPBBR\15.jpg" />
+    <Content Include="Slike\360\DCCPBBR\16.jpg" />
+    <Content Include="Slike\360\DCCPBBR\17.jpg" />
+    <Content Include="Slike\360\DCCPBBR\18.jpg" />
+    <Content Include="Slike\360\DCCPBBR\2.jpg" />
+    <Content Include="Slike\360\DCCPBBR\3.jpg" />
+    <Content Include="Slike\360\DCCPBBR\4.jpg" />
+    <Content Include="Slike\360\DCCPBBR\5.jpg" />
+    <Content Include="Slike\360\DCCPBBR\6.jpg" />
+    <Content Include="Slike\360\DCCPBBR\7.jpg" />
+    <Content Include="Slike\360\DCCPBBR\8.jpg" />
+    <Content Include="Slike\360\DCCPBBR\9.jpg" />
+    <Content Include="Slike\360\DCKCBK\1.jpg" />
+    <Content Include="Slike\360\DCKCBK\10.jpg" />
+    <Content Include="Slike\360\DCKCBK\11.jpg" />
+    <Content Include="Slike\360\DCKCBK\12.jpg" />
+    <Content Include="Slike\360\DCKCBK\13.jpg" />
+    <Content Include="Slike\360\DCKCBK\14.jpg" />
+    <Content Include="Slike\360\DCKCBK\15.jpg" />
+    <Content Include="Slike\360\DCKCBK\16.jpg" />
+    <Content Include="Slike\360\DCKCBK\17.jpg" />
+    <Content Include="Slike\360\DCKCBK\18.jpg" />
+    <Content Include="Slike\360\DCKCBK\2.jpg" />
+    <Content Include="Slike\360\DCKCBK\3.jpg" />
+    <Content Include="Slike\360\DCKCBK\4.jpg" />
+    <Content Include="Slike\360\DCKCBK\5.jpg" />
+    <Content Include="Slike\360\DCKCBK\6.jpg" />
+    <Content Include="Slike\360\DCKCBK\7.jpg" />
+    <Content Include="Slike\360\DCKCBK\8.jpg" />
+    <Content Include="Slike\360\DCKCBK\9.jpg" />
+    <Content Include="Slike\ADAEVR-1.jpg" />
+    <Content Include="Slike\ADAEVR-2.jpg" />
+    <Content Include="Slike\ADAEVR-3.jpg" />
+    <Content Include="Slike\ADAEVR-4.jpg" />
+    <Content Include="Slike\ADBABMG-1.jpg" />
+    <Content Include="Slike\ADBABMG-2.jpg" />
+    <Content Include="Slike\ADBABMG-3.jpg" />
+    <Content Include="Slike\ADBABMG-4.jpg" />
+    <Content Include="Slike\ADBABMG-5.jpg" />
+    <Content Include="Slike\ADBVBWB-1.jpg" />
+    <Content Include="Slike\ADBVBWB-2.jpg" />
+    <Content Include="Slike\ADBVBWB-3.jpg" />
+    <Content Include="Slike\ADBVBWB-4.jpg" />
+    <Content Include="Slike\ADCLHS-HG-1.jpg" />
+    <Content Include="Slike\ADCLHS-HG-2.jpg" />
+    <Content Include="Slike\ADCLHS-HG-3.jpg" />
+    <Content Include="Slike\ADCLHS-HG-4.jpg" />
+    <Content Include="Slike\ADCLHS-HG-5.jpg" />
+    <Content Include="Slike\Brendovi\ADIDAS.gif" />
+    <Content Include="Slike\Brendovi\CONVERSE.gif" />
+    <Content Include="Slike\Brendovi\DCSHOES.gif" />
+    <Content Include="Slike\CVT2BB-1.jpg" />
+    <Content Include="Slike\CVT2BB-2.jpg" />
+    <Content Include="Slike\CVT2BB-3.jpg" />
+    <Content Include="Slike\CVT2BB-4.jpg" />
+    <Content Include="Slike\CVT2BC-1.jpg" />
+    <Content Include="Slike\CVT2BC-2.jpg" />
+    <Content Include="Slike\CVT2BC-3.jpg" />
+    <Content Include="Slike\CVT2BC-4.jpg" />
+    <Content Include="Slike\CVWMBR-1.jpg" />
+    <Content Include="Slike\CVWMBR-2.jpg" />
+    <Content Include="Slike\CVWMBR-3.jpg" />
+    <Content Include="Slike\CVWMBR-4.jpg" />
+    <Content Include="Slike\CVWMFL-1.jpg" />
+    <Content Include="Slike\CVWMFL-2.jpg" />
+    <Content Include="Slike\CVWMFL-3.jpg" />
+    <Content Include="Slike\CVWMFL-4.jpg" />
+    <Content Include="Slike\DCAPSW-RD-1.jpg" />
+    <Content Include="Slike\DCAPSW-RD-2.jpg" />
+    <Content Include="Slike\DCAPSW-RD-3.jpg" />
+    <Content Include="Slike\DCAPSW-RD-4.jpg" />
+    <Content Include="Slike\DCBSSW-NV-1.jpg" />
+    <Content Include="Slike\DCBSSW-NV-2.jpg" />
+    <Content Include="Slike\DCBSSW-NV-3.jpg" />
+    <Content Include="Slike\DCBSSW-NV-4.jpg" />
+    <Content Include="Slike\DCCPBBR-1.jpg" />
+    <Content Include="Slike\DCCPBBR-2.jpg" />
+    <Content Include="Slike\DCCPBBR-3.jpg" />
+    <Content Include="Slike\DCCPBBR-4.jpg" />
+    <Content Include="Slike\DCKCBK-1.jpg" />
+    <Content Include="Slike\DCKCBK-2.jpg" />
+    <Content Include="Slike\DCKCBK-3.jpg" />
+    <Content Include="Slike\DCKCBK-4.jpg" />
+    <Content Include="Slike\DCPHHS-BK-1.jpg" />
+    <Content Include="Slike\DCPHHS-BK-2.jpg" />
+    <Content Include="Slike\DCPHHS-BK-3.jpg" />
+    <Content Include="Slike\DCPHHS-BK-4.jpg" />
+    <Content Include="Slike\DCPZHZ-HG-1.jpg" />
+    <Content Include="Slike\DCPZHZ-HG-2.jpg" />
+    <Content Include="Slike\DCPZHZ-HG-3.jpg" />
+    <Content Include="Slike\DCPZHZ-HG-4.jpg" />
+    <Content Include="Slike\pocetna\adidas.jpg" />
+    <Content Include="Slike\pocetna\Converse_City_2010.jpg" />
+    <Content Include="Slike\pocetna\DC Team.jpg" />
+    <Content Include="Slike\pocetna\maxresdefault.jpg" />
+    <Content Include="Slike\pocetna\vans.jpg" />
+    <Content Include="Slike\thumbs\ADAEVR-1.jpg" />
+    <Content Include="Slike\thumbs\ADBABMG-1.jpg" />
+    <Content Include="Slike\thumbs\ADBVBWB-1.jpg" />
+    <Content Include="Slike\thumbs\ADCLHS-HG-1_thumbs.jpg" />
+    <Content Include="Slike\thumbs\CVT2BB-1.jpg" />
+    <Content Include="Slike\thumbs\CVT2BC-1.jpg" />
+    <Content Include="Slike\thumbs\CVWMBR-1.jpg" />
+    <Content Include="Slike\thumbs\CVWMFL-1.jpg" />
+    <Content Include="Slike\thumbs\DCAPSW-RD-1_thumb.jpg" />
+    <Content Include="Slike\thumbs\DCBSSW-NV-1_thumb.jpg" />
+    <Content Include="Slike\thumbs\DCCPBBR-1_thumbs.jpg" />
+    <Content Include="Slike\thumbs\DCKCBK-1_thumb.jpg" />
+    <Content Include="Slike\thumbs\DCPHHS-BK-1_thumb.jpg" />
+    <Content Include="Slike\thumbs\DCPZHZ-HG-1_thumb.jpg" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Scripts\jquery.min.map" />
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\HotTowel\index.cshtml" />
+    <Content Include="Views\HotTowel\_splash.cshtml" />
+    <Content Include="Views\Admin\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_admin\" />
+    <Folder Include="SlikeTest\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201304151939372_InitialCreate.resx">
+      <DependentUpon>201304151939372_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201304181844348_VelicinaBrend.resx">
+      <DependentUpon>201304181844348_VelicinaBrend.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201304181859414_Velicine.resx">
+      <DependentUpon>201304181859414_Velicine.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201304181905154_Kategorija.resx">
+      <DependentUpon>201304181905154_Kategorija.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201304182107116_DatumProizvodi.resx">
+      <DependentUpon>201304182107116_DatumProizvodi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201304201635279_slike.resx">
+      <DependentUpon>201304201635279_slike.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201304240008054_brojFrejmova.resx">
+      <DependentUpon>201304240008054_brojFrejmova.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201304241909328_slikaUpdate.resx">
+      <DependentUpon>201304241909328_slikaUpdate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201305141744537_kategorije.resx">
+      <DependentUpon>201305141744537_kategorije.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201305141921422_Rute.resx">
+      <DependentUpon>201305141921422_Rute.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201305141925324_rute2.resx">
+      <DependentUpon>201305141925324_rute2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201305141933270_rute3.resx">
+      <DependentUpon>201305141933270_rute3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201305192102446_cenaPrePopusta.resx">
+      <DependentUpon>201305192102446_cenaPrePopusta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201305220045097_boja.resx">
+      <DependentUpon>201305220045097_boja.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201305220051263_boja2.resx">
+      <DependentUpon>201305220051263_boja2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201305220120482_boja3.resx">
+      <DependentUpon>201305220120482_boja3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201305221349525_bojaVrednost.resx">
+      <DependentUpon>201305221349525_bojaVrednost.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201305221627195_podkategorija.resx">
+      <DependentUpon>201305221627195_podkategorija.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201305221715001_podKat2.resx">
+      <DependentUpon>201305221715001_podKat2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201305221747189_podKatNaziv.resx">
+      <DependentUpon>201305221747189_podKatNaziv.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201305241630444_brendNaziv.resx">
+      <DependentUpon>201305241630444_brendNaziv.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201305242203562_filterNaziv.resx">
+      <DependentUpon>201305242203562_filterNaziv.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201305251800559_fav-proizvodi.resx">
+      <DependentUpon>201305251800559_fav-proizvodi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201305302353412_korisnik.resx">
+      <DependentUpon>201305302353412_korisnik.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201305311651283_korString.resx">
+      <DependentUpon>201305311651283_korString.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201306011301537_korSlika.resx">
+      <DependentUpon>201306011301537_korSlika.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201306011421266_koment.resx">
+      <DependentUpon>201306011421266_koment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201306011538145_datumIso.resx">
+      <DependentUpon>201306011538145_datumIso.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201306011833449_komReq.resx">
+      <DependentUpon>201306011833449_komReq.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201306081656380_drop.resx">
+      <DependentUpon>201306081656380_drop.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201306081759538_kursnaLista.resx">
+      <DependentUpon>201306081759538_kursnaLista.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201306091621095_dropCenaPrePop.resx">
+      <DependentUpon>201306091621095_dropCenaPrePop.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201306091909550_dropBojaPop.resx">
+      <DependentUpon>201306091909550_dropBojaPop.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201306192326135_narudzbina.resx">
+      <DependentUpon>201306192326135_narudzbina.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201306192336322_nar2.resx">
+      <DependentUpon>201306192336322_nar2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201306192347398_narudzbina2.resx">
+      <DependentUpon>201306192347398_narudzbina2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201306252338198_narudzbinaDetalji.resx">
+      <DependentUpon>201306252338198_narudzbinaDetalji.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201306260005222_narKup.resx">
+      <DependentUpon>201306260005222_narKup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201306261600443_narKorisnik.resx">
+      <DependentUpon>201306261600443_narKorisnik.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201306270126586_narDetaljiProizvodId.resx">
+      <DependentUpon>201306270126586_narDetaljiProizvodId.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201307072124554_preporuceno.resx">
+      <DependentUpon>201307072124554_preporuceno.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201310062325207_migr.resx">
+      <DependentUpon>201310062325207_migr.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201310091804071_brendZamena.resx">
+      <DependentUpon>201310091804071_brendZamena.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>54981</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:56535</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.                                                                                      
+       Other similar extension points exist, see Microsoft.Common.targets.                                                                                                                
+  <Target Name="BeforeBuild">                                                                                                                                                             
+  </Target>                                                                                                                                                                               
+  <Target Name="AfterBuild">                                                                                                                                                              
+  </Target> -->
+</Project>

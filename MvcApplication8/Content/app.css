@@ -1,0 +1,943 @@
+﻿/* #region HTML RESET */
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr,
+acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var,
+b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot,
+thead, tr, th, td, article, aside, canvas, details, figcaption, figure, footer, header, hgroup, menu,
+nav, section, summary, time, mark, audio, video
+{
+    font: inherit;
+    margin: 0;
+}
+
+/* #endregion */
+
+html
+{
+    padding: 0;
+    color: black;
+    background: #EFEFEF;
+}
+
+body
+{
+    font-size: 18px;
+    max-width: 1150px;
+    margin: 0 auto;
+    background-color: transparent;
+    font-family: "Segoe UI", Arial, Helvetica, sans-serif;
+}
+::-webkit-scrollbar
+{
+    width: 3px;
+}
+
+/* Track */
+::-webkit-scrollbar-track
+{
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    -webkit-border-radius: 6px;
+    border-radius: 6px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb
+{
+    -webkit-border-radius: 6px;
+    border-radius: 6px;
+    background: rgba(97, 97, 97, 0.8);
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
+}
+
+    ::-webkit-scrollbar-thumb:window-inactive
+    {
+        background: rgba(255,0,0,0.4);
+    }
+
+h1, h2, h3
+{
+    text-transform: none;
+    letter-spacing: -1px !important;
+    color: #151515;
+}
+
+h1
+{
+    font-size: 32px;
+}
+
+h2
+{
+    font-size: 24px;
+}
+
+section.main
+{
+    margin-top: 80px;
+    margin-bottom: 80px;
+}
+
+.navbar .brand
+{
+    padding: 6px 30px 12px 30px;
+    margin-bottom: 0;
+    height: 48px;
+}
+#footer {
+    margin-bottom: 0;
+    bottom: auto;
+    position: absolute;
+}
+
+h2.page-title
+{
+    font-size: 32px;
+}
+
+.brand .title
+{
+    float: left;
+    font-family: "Segoe UI", Arial, Helvetica, sans-serif;
+    font-size: 145%;
+    font-weight: 500;
+    letter-spacing: -2px;
+    margin: 2% 0;
+    padding-left: 50px;
+    text-transform: uppercase;
+    text-transform: initial;
+    text-decoration: none;
+    color: #1e1e1e;
+}
+
+.page-splash
+{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #151515;
+    opacity: 0.2;
+    pointer-events: all;
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -webkit-transition: opacity 0.1s linear;
+    -moz-transition: opacity 0.1s linear;
+    -o-transition: opacity 0.1s linear;
+    transition: opacity 0.1s linear;
+}
+
+.page-splash-message
+{
+    text-align: center;
+    margin: 10% 0 0 0;
+    font-size: 400%;
+    font-family: "Segoe UI", Arial, Helvetica, sans-serif;
+    font-weight: normal;
+    -webkit-text-shadow: 2px 2px rgba(0, 0, 0, 0.15);
+    text-shadow: 2px 2px rgba(0, 0, 0, 0.15);
+    text-transform: uppercase;
+    text-decoration: none;
+    color: #F58A00;
+    padding: 0;
+}
+
+.toast
+{
+    font-weight: normal;
+}
+
+.toast-info
+{
+    background-color: #194D7B;
+}
+
+.toast-bottom-right
+{
+    bottom: 50px;
+}
+
+.navbar-content-center
+{
+    text-align: center;
+}
+
+footer a
+{
+    font-weight: bold;
+}
+
+footer span
+{
+    padding: 10px 80px;
+    font-size: 18px;
+}
+
+.st-accordion
+{
+    width: 100%;
+    min-width: 270px;
+    margin: 0 auto;
+}
+
+    .st-accordion ul li
+    {
+        height: 100px;
+        border-bottom: 1px solid #c7deef;
+        border-top: 1px solid #fff;
+        overflow: hidden;
+    }
+
+        .st-accordion ul li:first-child
+        {
+            border-top: none;
+        }
+
+        .st-accordion ul li > a
+        {
+            font-size: 28px;
+            display: block;
+            position: relative;
+            line-height: 100px;
+            outline: none;
+            -webkit-transition: color 0.2s ease-in-out;
+            -moz-transition: color 0.2s ease-in-out;
+            -o-transition: color 0.2s ease-in-out;
+            transition: color 0.2s ease-in-out;
+        }
+
+            .st-accordion ul li > a span
+            {
+                background: transparent url(../../Content/images/down.png) no-repeat center center;
+                text-indent: -9000px;
+                width: 26px;
+                height: 14px;
+                position: absolute;
+                top: 50%;
+                right: -26px;
+                margin-top: -7px;
+                opacity: 0;
+                -webkit-transition: all 0.2s ease-in-out;
+                -moz-transition: all 0.2s ease-in-out;
+                -o-transition: all 0.2s ease-in-out;
+                transition: all 0.2s ease-in-out;
+            }
+
+            .st-accordion ul li > a:hover
+            {
+                color: #1d1d1d;
+            }
+
+                .st-accordion ul li > a:hover span
+                {
+                    opacity: 1;
+                    right: 10px;
+                }
+
+        .st-accordion ul li.st-open > a
+        {
+            color: #1d1d1d;
+        }
+
+            .st-accordion ul li.st-open > a span {
+                -webkit-transform: rotate(180deg);
+                -moz-transform: rotate(180deg);
+                -ms-transform: rotate(180deg);
+                -o-transform: rotate(180deg);
+                transform: rotate(180deg);
+                right: 10px;
+                opacity: 1;
+            }
+
+.st-content
+{
+    padding: 5px 0px 30px 0px;
+}
+
+    .st-content p
+    {
+        font-size: 16px;
+        font-style: italic;
+        line-height: 28px;
+    }
+
+    .st-content img
+    {
+        border-right: 1px solid #fff;
+        border-bottom: 1px solid #fff;
+    }
+a:hover
+{
+    text-decoration: none;
+}
+
+#container .mix
+{
+    opacity: 0;
+    display: none;
+}
+#korpa
+{
+    height: 45px;
+    width: 45px;
+    padding: 0;
+    margin-top: 10px;
+    background-color: rgb(230, 230, 230);
+}
+    #korpa:hover {
+        -webkit-box-shadow: 0px 0px 9px 0px #646262 inset;
+        -moz-box-shadow: 0px 0px 9px 0px #646262 inset;
+        -ms-box-shadow: 0px 0px 9px 0px #646262 inset;
+        -o-box-shadow: 0px 0px 9px 0px #646262 inset;
+        box-shadow: 0px 0px 9px 0px #646262 inset;
+    }
+    #korpa:active, #korpa:focus {
+        outline: none;
+        border: none;
+    }
+#korpaUkupno
+{
+    padding: 0;
+    margin: 5px 0 0 25px;
+    position: absolute;
+    border:2px solid white;
+}
+#konfigMeni
+{
+    position: fixed;
+    left: 0;
+    top: 105px;
+    width: 60px;
+    z-index: 4;
+}
+#konfigMeniMobile
+{
+    float: right;
+    padding: 5px 7px 10px 8px;
+    display: none;
+    margin: 15px 0 0 0;
+    background-color: rgb(230, 230, 230);
+}
+    #konfigMeniMobile:hover {
+        -webkit-box-shadow: 0px 0px 9px 0px #646262 inset;
+        -moz-box-shadow: 0px 0px 9px 0px #646262 inset;
+        -ms-box-shadow: 0px 0px 9px 0px #646262 inset;
+        -o-box-shadow: 0px 0px 9px 0px #646262 inset;
+        box-shadow: 0px 0px 9px 0px #646262 inset;
+    }
+
+/**************************
+/* Boostrap overrides      */
+
+.navbar-fixed-top .navbar-inner
+{
+    padding-left: 1em !important;
+    padding-right: 1em !important;
+    padding-top: 0;
+    padding-bottom: 0;
+    border-width: 0;
+}
+
+.navbar-fixed-bottom .navbar-inner
+{
+    padding: 6px;
+}
+
+.navbar
+{
+    text-transform: uppercase;
+}
+
+.spinner {
+    width: 30px;
+    height: 30px;
+    position: fixed;
+    visibility: hidden;
+    z-index: 11;
+    top: 50%;
+    left: 50%;
+    margin-top: -15px;
+    margin-left: -20px;
+    border: 3px solid #b99b25;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    border-radius: 50%;
+}
+
+    .spinner::before, .spinner::after {
+        content: "";
+        position: absolute;
+        display: block;
+        width: 3px;
+        background-color: #b99b25;
+        -webkit-border-radius: 1.5px;
+        -moz-border-radius: 1.5px;
+        -ms-border-radius: 1.5px;
+        -o-border-radius: 1.5px;
+        border-radius: 1.5px;
+    }
+
+    .spinner::before {
+        height: 9px;
+        left: 13.5px;
+        top: 50%;
+        -webkit-animation: spin 2000ms linear infinite;
+        -moz-animation: spin 2000ms linear infinite;
+        -o-animation: spin 2000ms linear infinite;
+        animation: spin 2000ms linear infinite;
+        -webkit-transform-origin: center top;
+        -moz-transform-origin: center top;
+        -ms-transform-origin: center top;
+        -o-transform-origin: center top;
+        transform-origin: center top;
+    }
+
+    .spinner::after {
+        height: 12px;
+        left: 13.5px;
+        top: 50%;
+        -webkit-animation: spin 500ms linear infinite;
+        -moz-animation: spin 500ms linear infinite;
+        -o-animation: spin 500ms linear infinite;
+        animation: spin 500ms linear infinite;
+        -webkit-transform-origin: center top;
+        -moz-transform-origin: center top;
+        -ms-transform-origin: center top;
+        -o-transform-origin: center top;
+        transform-origin: center top;
+    }
+
+    .spinner.active {
+        visibility: visible;
+    }
+
+@-webkit-keyframes spin {
+    to {
+        -webkit-transform: rotate(360deg);
+        -moz-transform: rotate(360deg);
+        -ms-transform: rotate(360deg);
+        -o-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+
+@-moz-keyframes spin {
+    to {
+        -webkit-transform: rotate(360deg);
+        -moz-transform: rotate(360deg);
+        -ms-transform: rotate(360deg);
+        -o-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+
+@-ms-keyframes spin {
+    to {
+        -webkit-transform: rotate(360deg);
+        -moz-transform: rotate(360deg);
+        -ms-transform: rotate(360deg);
+        -o-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes spin {
+    to {
+        -webkit-transform: rotate(360deg);
+        -moz-transform: rotate(360deg);
+        -ms-transform: rotate(360deg);
+        -o-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+
+#overlay {
+    opacity: 0.4;
+    position: fixed;
+    display: none;
+    top: 0;
+    left: 0;
+    background-color: #979383;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+}
+    #overlay.active {
+        display: block;
+    }
+
+.margin{
+    margin: 0 5px;
+}
+.thumbs
+{
+    width: 248px;
+    font-size: small;
+    cursor: pointer;
+    margin: 3px;
+    overflow: hidden;
+    position: relative;
+}
+
+    .thumbs:hover
+    {
+        -moz-box-shadow: 0 0 5px rgba(0,0,0,0.5);
+        -webkit-box-shadow: 0 0 5px rgba(0,0,0,0.5);
+        box-shadow: 0 0 5px rgba(0,0,0,0.5);
+    }
+
+.hide
+{
+    display: none;
+}
+
+.display
+{
+    display: normal;
+}
+
+.visHidden
+{
+    visibility: hidden;
+}
+
+.visVisible
+{
+    visibility: visible;
+}
+
+#logo
+{
+    height: 40px;
+}
+
+.circle
+{
+    text-align: center;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+}
+.social
+{
+    height: 50px;
+    width: 50px;
+    margin-left: 7px;
+}
+.facebook
+{
+    background-color: #3B5998;
+}
+
+    .facebook:hover
+    {
+        background-color: #4e6597;
+    }
+
+.google
+{
+    background-color: #8a0000;
+}
+
+    .google:hover
+    {
+        background-color: #b11d1d;
+    }
+.youtube
+{
+    background-color: #c0392b;
+}
+    .youtube:hover
+    {
+        background-color: #e74c3c;
+    }
+
+#pretraga_a
+{
+    width: 40px;
+    height: 25px;
+    padding: 0;
+    display: inline-block;
+}
+
+.caption h4
+{
+    text-align: center;
+    font-size: large;
+}
+
+hr
+{
+    margin: 10px 0;
+    border-top: 1px solid rgb(206, 206, 206);
+}
+
+.badge-circle
+{
+    -webkit-border-radius: 500px;
+    -moz-border-radius: 500px;
+    border-radius: 500px;
+}
+#slika
+{
+    width: 35px;
+    height:35px;
+}
+.brendovi
+{
+    width: 50px;
+    height: 50px;
+}
+.lista {
+    cursor: pointer;
+}
+#textarea {
+    max-width: 80%;
+    width: 380px;
+    height: 100px;
+    max-height: 200px;
+    margin-bottom: 0;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+}
+.greska
+{
+    color: indianred;
+    font-size: small;
+    vertical-align: top;
+}
+.border
+{
+    border: 1px solid rgb(187, 187, 187);
+    border-radius: 4px;
+}
+    .border:hover
+    {
+        -moz-box-shadow: 0 0 5px rgba(0,0,0,0.5);
+        -webkit-box-shadow: 0 0 5px rgba(0,0,0,0.5);
+        box-shadow: 0 0 5px rgba(0,0,0,0.5);
+    }
+.kolona
+{
+    text-align: center;
+    border-bottom: 1px solid rgb(187, 187, 187);
+    margin-top: 5px;
+    padding-bottom: 5px;
+}
+#filter
+{
+    height: 26px;
+    padding: 0 12px 0 25px;
+    background: white url("../../Content/images/lupa.png") 8px 6px no-repeat;
+    border: 1px solid rgb(187, 187, 187);
+    border-radius: 13px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-box-shadow: inset 0 1px #e5e7ed, 0 1px 0 #fcfcfc;
+    -moz-box-shadow: inset 0 1px #e5e7ed, 0 1px 0 #fcfcfc;
+    -ms-box-shadow: inset 0 1px #e5e7ed, 0 1px 0 #fcfcfc;
+    -o-box-shadow: inset 0 1px #e5e7ed, 0 1px 0 #fcfcfc;
+    box-shadow: inset 0 1px #e5e7ed, 0 1px 0 #fcfcfc;
+}
+.border-bottom
+{
+    border-bottom: 5px solid;
+    padding-top: 5px;
+}
+#user
+{
+    border-bottom-color: #3498db;
+    padding-bottom: 40px;
+}
+#user1
+{
+    font-size: 15px;
+    font-style: italic;
+    border-bottom-color: #e74c3c;
+    padding-bottom: 5px;
+}
+#user2
+{
+    font-size: 15px;
+    font-style: italic;
+    border-bottom-color: #27ae60;
+    padding-bottom: 5px;
+}
+.typeahead_a
+{
+    font-size: 11px;
+}
+.natpis
+{
+    overflow: hidden;
+    -webkit-transition: background 0.3s ease-in-out;
+    -moz-transition: background 0.3s ease-in-out;
+    transition: background 0.3s ease-in-out;
+}
+
+    .natpis:hover
+    {
+        background: rgba(0,0,0,0);
+    }
+
+    .natpis img
+    {
+        -webkit-transition: -webkit-transform 0.3s ease-in-out;
+        -moz-transition: -moz-transform 0.3s ease-in-out;
+        transition: transform 0.3s ease-in-out;
+    }
+
+    .natpis:hover img
+    {
+        -webkit-transform: translateX(110%);
+        -moz-transform: translateX(110%);
+        transform: translateX(110%);
+    }
+
+    .natpis::before,
+    .natpis::after
+    {
+        position: absolute;
+        opacity: 0;
+        z-index: -1;
+        -webkit-transition: -webkit-transform 0.3s ease-in-out;
+        -moz-transition: -moz-transform 0.3s ease-in-out;
+        transition: transform 0.3s ease-in-out;
+        -webkit-transition: opacity 0.3s;
+        -moz-transition: opacity 0.3s;
+        transition: opacity 0.3s;
+    }
+
+    .natpis::after
+    {
+        content: '\201C' attr(data-opis) '\201D';
+        top: 0;
+        height: 100%;
+        color: #000;
+        font-size: 14px;
+        text-align: center;
+        padding: 40px 10px;
+    }
+
+    .natpis:hover::before,
+    .natpis:hover::after
+    {
+        opacity: 1;
+    }
+
+.ribbon-wrapper-green
+{
+    width: 85px;
+    height: 88px;
+    overflow: hidden;
+    position: absolute;
+    top: -3px;
+    right: -3px;
+    z-index: 4;
+}
+
+.ribbon-green
+{
+    font: bold 15px Sans-Serif;
+    color: #333;
+    text-align: center;
+    text-shadow: rgba(3, 3, 3, 0.5) 0px 1px 0px;
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    position: relative;
+    padding: 7px 0;
+    left: -5px;
+    top: 15px;
+    width: 120px;
+    background-color: #e74c3c;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#e74c3c), to(#c0392b));
+    background-image: -webkit-linear-gradient(top, #e74c3c, #c0392b);
+    background-image: -moz-linear-gradient(top, #e74c3c, #c0392b);
+    background-image: -ms-linear-gradient(top, #e74c3c, #c0392b);
+    background-image: -o-linear-gradient(top, #e74c3c, #c0392b);
+    color: rgb(255, 255, 255);
+    -webkit-box-shadow: 0px 0px 3px rgba(0,0,0,0.3);
+    -moz-box-shadow: 0px 0px 3px rgba(0,0,0,0.3);
+    box-shadow: 0px 0px 3px rgba(0,0,0,0.3);
+}
+
+    .ribbon-green:before, .ribbon-green:after
+    {
+        content: "";
+        border-top: 3px solid #c0392b;
+        border-left: 3px solid transparent;
+        border-right: 3px solid transparent;
+        position: absolute;
+        bottom: -3px;
+    }
+
+    .ribbon-green:before
+    {
+        left: 0;
+    }
+
+    .ribbon-green:after
+    {
+        right: 0;
+    }
+#komentar-dugme {
+    padding: 15px 4px 15px 4px;
+}
+.komentari {
+    width: 90%;
+    padding: 20px 10px 20px 10px;
+    height: 100%;
+}
+
+.komentar {
+    overflow: hidden;
+    border-bottom: 1px solid #ddd;
+    margin: 0 0 1em;
+    *zoom: 1;
+    width: 100%;
+}
+
+.komentar-img {
+    width: 40px;
+    height: 40px;
+    float: left;
+    margin-right: 15px;
+    overflow: hidden;
+}
+
+.komentar-telo {
+    overflow: hidden;
+}
+
+.komentar .tekst {
+    padding: 10px;
+    color: GrayText;
+    border: 1px solid #e5e5e5;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -o-border-radius: 5px;
+    background: #fff;
+}
+
+.komentar .attr {
+    font-size: 14px;
+    color: #666;
+}
+
+.timeago {
+    font-size: small;
+}
+
+.komentari, .komentar {
+    position: relative;
+}
+
+    .komentari:before, komentar:before, .komentar .tekst:before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 65px;
+    }
+    .komentar:hover:before {
+        background: #3b5998;
+    }
+    .komentar .tekst:before {
+        top: 18px;
+        left: 51px;
+        width: 9px;
+        height: 9px;
+        border-width: 0 0 1px 1px;
+        border-style: solid;
+        border-color: #e5e5e5;
+        background: #fff;
+        -webkit-transform: rotate(45deg);
+        -moz-transform: rotate(45deg);
+        -ms-transform: rotate(45deg);
+        -o-transform: rotate(45deg);
+    }
+
+/* End Boostrap overrides  */
+/***************************/
+
+@media only screen and (max-width: 979px)
+{
+    .page-splash-message
+    {
+        font-size: 150%;
+    }
+
+    .navbar-fixed-top {
+        position: fixed;
+    }
+
+    footer span
+    {
+        padding: 10px 50px;
+        font-size: 14px;
+    }
+
+    .brand .title
+    {
+        padding-left: 20px;
+    }
+
+    section.main
+    {
+        margin-top: 80px;
+        margin-bottom: 80px;
+    }
+    #korpa
+    {
+        height: 35px;
+        width: 35px;
+        margin: 15px 10px;
+    }
+    #korpaUkupno
+    {
+        padding: 0 0 10px 0;
+        margin: 8px 0 0 25px;
+        width: 20px;
+        height: 10px;
+        font-size: 10px;
+    }
+    #meniCollapse
+    {
+        margin-top: 20px;
+    }
+    #konfigMeni
+    {
+        display: none;
+    }
+    #konfigMeniMobile
+    {
+        display: compact;
+    }
+    .messageBox
+    {
+        max-width: 600px;
+    }
+}
+@media only screen and (max-width: 320px)
+{
+    .messageBox
+    {
+        max-width: 300px;
+    }
+    #textarea 
+    {
+        width: 260px;
+        max-width: 95%;
+    }
+}

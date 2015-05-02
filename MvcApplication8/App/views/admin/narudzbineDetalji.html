@@ -1,0 +1,30 @@
+﻿<div class="messageBox">
+    <div class="modal-header">
+        <h1>Detalji narudžbine</h1>
+    </div>
+    <div class="modal-body">
+        <table class="table footable">
+            <thead>
+                <tr>
+                    <th>Slika</th>
+                    <th>Naziv</th>
+                    <th>Veličina</th>
+                    <th>Količina</th>
+                    <th>Cena</th>
+                </tr>
+            </thead>
+            <tbody data-bind="foreach: narudzbina.NarudzbinaDetalji">
+                <tr>
+                    <td><img data-bind="attr: { src: SlikaSrc }" /></td>
+                    <td data-bind="text: Naziv"></td>
+                    <td data-bind="text: Velicina"></td>
+                    <td data-bind="text: Kolicina"></td>
+                    <td data-bind="text: Cena() + '€'"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-primary btn-info" data-bind="click: accept">Ok</button>
+    </div>
+</div>

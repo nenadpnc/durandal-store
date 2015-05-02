@@ -1,0 +1,102 @@
+﻿<div class="sidr" id="sidr">
+    <ul style="margin-bottom:58px;margin-top:66px;">
+        <li>
+            <form>
+                <p>
+                    <input id="pretraga" style="margin-top: 10px;width:180px;" type="text" placeholder="pretraga..." data-provide="typeahead" />
+                    <a id="pretraga_a" class="btn btn-danger btn-small lista" data-bind="event: { tap: pretraga }">
+                        <i id="icon" class="icon-repeat icon-light"></i>
+                    </a>
+                </p>
+            </form>
+        </li>
+        <li>
+            <a class="lista" data-trigger="collapse" data-bind="html: '<i class=icon-filter></i> Kategorija (' + podkategorije().length + ') <i class=icon-angle-down style=margin-top:25px;></i>'"></a>
+            <ul id="filterKategorije" class="collapsible" style="display: none;" data-bind="foreach: podkategorije">
+                <li>
+                    <a class="filter lista" data-bind="attr: { 'data-filter': FilterNaziv }, text: Naziv"></a>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a class="lista" data-trigger="collapse" data-bind="html: '<i class=icon-filter></i> Brend (' + brendovi().length + ') <i class=icon-angle-down style=margin-top:25px;></i>'"></a>
+            <div style="margin-left: 5px; margin-right: 5px" class="collapsible">
+                <p id="filterBrendovi" data-bind="foreach: brendovi">
+                    <button class="filter btn circle" style="padding: 0; width: 55px; height: 55px;"
+                        data-bind="attr: { 'data-filter': Naziv }">
+                        <img class="img-circle" style="width: 45px;" data-bind="attr: { src: SlikaSrc, alt: Naziv }" />
+                    </button>
+                </p>
+            </div>
+        </li>
+        <li>
+            <a class="lista" data-trigger="collapse" data-bind="html: '<i class=icon-filter></i> Boja (' + boje().length + ') <i class=icon-angle-down style=margin-top:25px;></i>'"></a>
+            <div style="margin-left: 5px; margin-right: 5px;" class="collapsible">
+                <p id="filterBoje" data-bind="foreach: boje">
+                    <button class="filter btn circle" style="padding: 0; width: 55px; height: 55px;"
+                        data-bind="attr: { 'data-filter': Naziv }">
+                        <span class="circle" style="width: 16px; height: 45px; margin-left:4px;" data-bind="style: { backgroundColor: Vrednost }"></span>
+                    </button>
+                </p>
+            </div>
+        </li>
+        <li>
+            <a class="lista" data-trigger="collapse"><i class="icon-sort-by-attributes"></i> Sortiranje <i class="icon-angle-down" style="margin-top:25px;"></i></a>
+            <div class="collapsible" style="margin-left: 5px; margin-right: 5px;">
+                <p>
+                    <button class="sort btn circle" data-sort="data-cena" data-order="desc" style="width:55px; height:55px; padding:5px;">
+                        <img class="img-circle" src="../../Content/images/Money-Deposit.png" />
+                    </button>
+                    <button class="sort btn circle" data-sort="data-datum" data-order="desc" style="width:55px; height:55px; padding:5px;">
+                        <img class="img-circle" src="../../Content/images/Date.png" />
+                    </button>
+                    <button class="sort btn circle" data-sort="data-fav" data-order="asc" style="width:55px; height:55px; padding:5px;">
+                        <img class="img-circle" src="../../Content/images/Heart.png" />
+                    </button>
+                    <button class="sort btn circle" data-sort="data-popust" data-order="asc" style="width:55px; height:55px; padding:5px;">
+                        <img class="img-circle" src="../../Content/images/Discount.png" />
+                    </button>
+                </p>
+            </div>
+        </li>
+    </ul>
+</div>
+<section id="section">
+    <a id="konfigMeni" href="#sidr" class="btn btn-inverse btn-primary konfigMeni"><i class="icon-wrench icon-2x"></i></a>
+    <div class="container-fluid">
+        <div class="row-fluid">
+            <div class="span12">
+                <span data-bind="text: naslov().toUpperCase()"></span>
+                <p class="pull-right" id="brisanjeFiltera">
+                    <button class="btn btn-info margin btn-mini filter" data-bind="visible: filterKategorije(), html: filterKategorije() + ' <i class=icon-remove-sign></i>'"
+                        data-filter="obrisiKategorije">
+                    </button>
+                    <button class="btn btn-info margin btn-mini filter" data-bind="visible: filterBrendovi(), html: filterBrendovi() + ' <i class=icon-remove-sign></i>'"
+                        data-filter="obrisiBrendove">
+                    </button>
+                    <button class="btn btn-info margin btn-mini filter" data-bind="visible: filterBoje(), html: filterBoje() + ' <i class=icon-remove-sign></i>'"
+                        data-filter="obrisiBoje">
+                    </button>
+                </p>
+            </div>
+        </div>
+    </div>
+    <hr />
+    <div class="container" id="container" data-bind="foreach: proizvodi">
+        <div class="" data-bind="attr: { class: 'mix thumbnail thumbs mix_all ' + Brend().Naziv() + ' ' + Boja() + ' ' + PodkatNaziv(), 'data-cena': Cena, 'data-datum': Datum, 'data-fav': BrojFav, 'data-popust': Popust }">
+            <img data-bind="attr: { src: SlikaSrc }" />
+            <div class="caption">
+                <h4 data-bind="text: Naziv"></h4>
+                <hr />
+                <p style="margin-bottom: 10px" data-bind="text: KratakOpis"></p>
+                <p>
+                    <span class="badge badge-warning badge-circle" data-bind="visible: DaLiJe360">
+                        <img src="../../Content/images/360.png" style="height:20px;" /></span>
+                    <span class="badge badge-important badge-circle" data-bind="visible: Popust() > 0, html: '<i class=icon-arrow-down></i> ' + Popust() + ' %'"></span>
+                    <span data-bind="html: BrojFav() + ' <i class=icon-heart></i>'"></span>
+                    <span class="badge badge-info pull-right" data-bind="text: '€ ' + Cena().toFixed(2)"></span>
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
